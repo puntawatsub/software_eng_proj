@@ -8,7 +8,7 @@ public class Main {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        System.out.printf("Select a language (1-3):%n1. English%n2. Finnish%n3. Swedish%n%n4. Japanese%n");
+        System.out.printf("Select a language (1-3):%n1. English%n2. Finnish%n3. Swedish%n4. Japanese%n");
         Locale locale = Locale.of("en", "US");
         while (true) {
             System.out.print("Select (1-4): ");
