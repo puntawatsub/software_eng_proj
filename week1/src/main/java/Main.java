@@ -11,12 +11,13 @@ public class Main {
         System.out.printf("Select a language (1-3):%n1. English%n2. Finnish%n3. Swedish%n");
         Locale locale = Locale.of("en", "US");
         while (true) {
-            System.out.print("Select (1-3): ");
+            System.out.print("Select (1-4): ");
             try {
                 locale = switch (Integer.parseInt(sc.next())) {
                     case 1 -> Locale.of("en", "US");
                     case 2 -> Locale.of("fi", "FI");
                     case 3 -> Locale.of("sv", "SE");
+                    case 4 -> Locale.of("ja", "JP");
                     default -> throw new Exception();
                 };
                 break;
