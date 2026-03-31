@@ -14,7 +14,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="400.0" prefWidth="365.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.puntawat.metsofteng2.week2.controller.HomeController">
+<AnchorPane prefHeight="400.0" prefWidth="411.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.puntawat.metsofteng2.week2.controller.HomeController">
    <children>
       <VBox layoutX="123.0" layoutY="116.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -22,24 +22,25 @@
               <menus>
                 <Menu fx:id="menus" mnemonicParsing="false" text="%language">
                      <items>
-                        <RadioMenuItem id="en_US" fx:id="englishToggle" mnemonicParsing="false" onAction="#onLanguageSelected" text="English">
+                        <RadioMenuItem id="en-US" fx:id="englishToggle" mnemonicParsing="false" onAction="#onLanguageSelected" styleClass="latin" text="English (US)">
                            <toggleGroup>
                               <ToggleGroup fx:id="languageToggleGroup" />
                            </toggleGroup>
                         </RadioMenuItem>
-                        <RadioMenuItem id="fi_FI" fx:id="finnishToggle" mnemonicParsing="false" onAction="#onLanguageSelected" text="suomi" toggleGroup="$languageToggleGroup" />
-                        <RadioMenuItem id="sv_SE" fx:id="swedishToggle" mnemonicParsing="false" onAction="#onLanguageSelected" text="svenska" toggleGroup="$languageToggleGroup" />
-                        <RadioMenuItem id="ja_JP" fx:id="japaneseToggle" mnemonicParsing="false" onAction="#onLanguageSelected" text="日本語" toggleGroup="$languageToggleGroup" />
-                        <RadioMenuItem id="ar_AE" fx:id="arabicToggle" mnemonicParsing="false" onAction="#onLanguageSelected" text="العربية" toggleGroup="$languageToggleGroup" />
+                        <RadioMenuItem id="fi-FI" mnemonicParsing="false" onAction="#onLanguageSelected" styleClass="latin" text="suomi (Suomi)" toggleGroup="$languageToggleGroup" />
+                        <RadioMenuItem id="sv-FI" mnemonicParsing="false" onAction="#onLanguageSelected" styleClass="latin" text="svenska (Finland)" toggleGroup="$languageToggleGroup" />
+                        <RadioMenuItem id="ja-JP" mnemonicParsing="false" onAction="#onLanguageSelected" styleClass="jp" text="日本語 (日本)" toggleGroup="$languageToggleGroup" />
+                        <RadioMenuItem id="ar-AE" mnemonicParsing="false" onAction="#onLanguageSelected" styleClass="ar" text="العربية (الإمارات)" toggleGroup="$languageToggleGroup" />
                      </items>
                 </Menu>
               </menus>
             </MenuBar>
             <TableView fx:id="tableView" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
               <columns>
-                <TableColumn fx:id="itemColumn" editable="false" prefWidth="238.0" sortable="false" text="%Item" />
-                <TableColumn fx:id="quantityColumn" editable="false" prefWidth="61.0" sortable="false" text="%Quantity" />
-                  <TableColumn fx:id="priceColumn" editable="false" prefWidth="63.0" sortable="false" text="%Price" />
+                <TableColumn fx:id="itemColumn" editable="false" maxWidth="1.7976931348623157E308" prefWidth="169.5" sortable="false" text="%Item" />
+                <TableColumn fx:id="quantityColumn" editable="false" maxWidth="1.7976931348623157E308" prefWidth="70.5" sortable="false" text="%Quantity" />
+                  <TableColumn fx:id="priceColumn" editable="false" maxWidth="1.7976931348623157E308" prefWidth="68.0" sortable="false" text="%Price" />
+                  <TableColumn fx:id="totalColumn" editable="false" maxWidth="1.7976931348623157E308" prefWidth="101.0" sortable="false" text="%total" />
               </columns>
                <columnResizePolicy>
                   <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

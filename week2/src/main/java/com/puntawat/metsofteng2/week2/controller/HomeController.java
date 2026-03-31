@@ -3,6 +3,7 @@ package com.puntawat.metsofteng2.week2.controller;
 import com.puntawat.metsofteng2.week2.model.PurchaseItem;
 import com.puntawat.metsofteng2.week2.model.SelectedLocale;
 import com.puntawat.metsofteng2.week2.model.ShoppingCart;
+import com.puntawat.metsofteng2.week2.service.LanguageService;
 import javafx.application.Platform;
 import javafx.beans.property.*;
 import javafx.collections.ListChangeListener;
@@ -15,10 +16,11 @@ import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import jdk.jfr.EventType;
 
 import java.io.IOException;
+import java.text.NumberFormat;
 import java.util.Locale;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class HomeController {
@@ -30,6 +32,9 @@ public class HomeController {
 
     @FXML
     private TableColumn<PurchaseItem, String> priceColumn;
+
+    @FXML
+    private TableColumn<PurchaseItem, String> totalColumn;
 
     @FXML
     private Button addItemButton;
@@ -44,37 +49,25 @@ public class HomeController {
     private ToggleGroup languageToggleGroup;
 
     @FXML
-    private RadioMenuItem arabicToggle;
-
-    @FXML
     private RadioMenuItem englishToggle;
 
-    @FXML
-    private RadioMenuItem finnishToggle;
+    private NumberFormat nf;
 
-    @FXML
-    private RadioMenuItem japaneseToggle;
-
-    @FXML
-    private RadioMenuItem swedishToggle;
-
-    private ResourceBundle rb;
+    private PurchaseItem selected;
 
 
     @FXML
     private void initialize() {
 
         if (SelectedLocale.getInstance().getSelected() == null) {
-            englishToggle.setSelected(true);
+            languageToggleGroup.selectToggle(englishToggle);
         } else {
-            RadioMenuItem radio = switch (SelectedLocale.getInstance().getSelected()) {
-                case "sv_SE" -> swedishToggle;
-                case "ar_AE" -> arabicToggle;
-                case "fi_FI" -> finnishToggle;
-                case "ja_JP" -> japaneseToggle;
-                default -> englishToggle;
-            };
-            radio.setSelected(true);
+            Optional<Toggle> toggleOptional = languageToggleGroup.getToggles().stream().filter(toggle -> toggle instanceof RadioMenuItem).filter(toggle -> ((RadioMenuItem) toggle).getId().equals(SelectedLocale.getInstance().getSelected())).findFirst();
+            if (toggleOptional.isPresent()) {
+                languageToggleGroup.selectToggle(toggleOptional.get());
+            } else {
+                languageToggleGroup.selectToggle(englishToggle);
+            }
         }
 
 
@@ -82,7 +75,7 @@ public class HomeController {
         addItemButton.setOnAction(this::onAddItemPressed);
         ShoppingCart.getInstance().getPurchaseItems().addListener((ListChangeListener<PurchaseItem>) change -> {
             while (change.next()) {
-                costLabel.setText(String.format("%.2f", ShoppingCart.getInstance().getTotalCost()));
+                updateCostLabel();
             }
         });
         languageToggleGroup.selectedToggleProperty().addListener((obs, oldToggle, newToggle) -> {
@@ -90,33 +83,57 @@ public class HomeController {
                 oldToggle.setSelected(true);
             }
         });
+        tableView.getSelectionModel().selectedItemProperty().addListener(((obv, oldSelect, newSelect) -> {
+            selected = newSelect;
+        }));
+        MenuItem deleteItem = new MenuItem("Delete");
+        deleteItem.setOnAction(event -> {
+            ShoppingCart.getInstance().removeItem(selected);
+        });
+        ContextMenu contextMenu = new ContextMenu(deleteItem);
+        tableView.setOnContextMenuRequested(contextMenuEvent -> {
+            contextMenu.show(costLabel.getScene().getWindow(), contextMenuEvent.getScreenX(), contextMenuEvent.getScreenY());
+        });
 
 
 
 
         quantityColumn.setCellValueFactory(data -> new ReadOnlyIntegerWrapper(data.getValue().getQuantity()).asObject());
         itemColumn.setCellValueFactory(data -> new ReadOnlyStringWrapper(data.getValue().getName()));
-        priceColumn.setCellValueFactory(data -> new ReadOnlyStringWrapper(String.format("%.2f", data.getValue().getPrice())));
-
+        priceColumn.setCellValueFactory(data -> new ReadOnlyStringWrapper(nf.format(data.getValue().getPrice())));
+        totalColumn.setCellValueFactory(data -> new ReadOnlyStringWrapper(nf.format(data.getValue().getTotalCost())));
         tableView.setItems(ShoppingCart.getInstance().getPurchaseItems());
-        costLabel.setText(String.format("%.2f", ShoppingCart.getInstance().getTotalCost()));
     }
 
     public void setRb(ResourceBundle rb) {
-        this.rb = rb;
+        LanguageService.getInstance().setResourceBundle(rb);
+        nf = NumberFormat.getCurrencyInstance(rb.getLocale());
+        updateCostLabel();
+//        updateFont(rb);
         tableView.setPlaceholder(new Text(rb.getString("no_content")));
-        System.out.println(rb.getLocale().getLanguage());
-        if (rb.getLocale().getLanguage().equals("ar_ae")) {
+        if (LanguageService.getInstance().isRTL()) {
             costLabel.getScene().setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
         }
+    }
+
+    private void updateCostLabel() {
+        costLabel.setText(nf.format(ShoppingCart.getInstance().getTotalCost()));
     }
 
     private void onAddItemPressed(ActionEvent event) {
         try {
             Stage stage = new Stage();
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/AddItem.fxml"), rb);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/AddItem.fxml"), LanguageService.getInstance().getResourceBundle());
             Scene scene = new Scene(loader.load());
-
+            if (LanguageService.getInstance().isRTL()) {
+                scene.setNodeOrientation(NodeOrientation.RIGHT_TO_LEFT);
+            }
+            String font = switch (LanguageService.getInstance().getResourceBundle().getLocale().getLanguage()) {
+                case "ja" -> "/css/japanese.css";
+                case "ar" -> "/css/arabic.css";
+                default -> "/css/latin.css";
+            };
+//            scene.getStylesheets().add(getClass().getResource(font).toExternalForm());
             stage.setScene(scene);
             stage.initModality(Modality.APPLICATION_MODAL);
             stage.showAndWait();
@@ -128,7 +145,7 @@ public class HomeController {
     @FXML
     void onLanguageSelected(ActionEvent event) throws IOException {
         String id = ((RadioMenuItem) languageToggleGroup.getSelectedToggle()).getId();
-        Locale locale = Locale.of(id);
+        Locale locale = Locale.forLanguageTag(id);
         SelectedLocale.getInstance().setSelected(id);
         Stage stage = (Stage) costLabel.getScene().getWindow();
         var rb =  ResourceBundle.getBundle("Bundles", locale);
@@ -137,6 +154,15 @@ public class HomeController {
         ((HomeController) loader.getController()).setRb(rb);
         stage.setScene(scene);
     }
+
+//    private void updateFont(ResourceBundle rb) {
+//        String font = switch (rb.getLocale().getLanguage()) {
+//            case "ja" -> "/css/japanese.css";
+//            case "ar" -> "/css/arabic.css";
+//            default -> "/css/latin.css";
+//        };
+//        costLabel.getScene().getStylesheets().add(getClass().getResource(font).toExternalForm());
+//    }
 
 
 }

@@ -1,0 +1,124 @@
+pipeline {
+    agent any
+
+    environment {
+        PATH = "/usr/local/bin:$PATH"
+
+        DOCKERHUB_CREDENTIALS_ID = 'Docker_Hub'
+        DOCKERHUB_REPO = 'puntawatsubhamani/week2_homework_softengproj2'
+        DOCKER_IMAGE_TAG = 'latest'
+    }
+
+    tools {
+        maven 'Maven'
+        dockerTool 'local-docker'
+    }
+
+    stages {
+
+        stage('Check Docker') {
+            steps {
+                sh 'docker --version'
+            }
+        }
+
+        stage('Checkout') {
+            steps {
+                git branch: 'main',
+                url: 'https://github.com/puntawatsub/software_eng_proj.git'
+            }
+        }
+
+        stage('Build') {
+            steps {
+                dir('week1') {
+                    sh 'mvn clean install'
+                }
+            }
+        }
+
+        stage('Test') {
+            steps {
+                dir('week2') {
+                    sh 'mvn test'
+                }
+            }
+        }
+
+        stage('Code Coverage') {
+            steps {
+                dir('week2') {
+                    sh 'mvn jacoco:report'
+                }
+            }
+        }
+
+        stage('Publish Test Results') {
+            steps {
+                dir('week2') {
+                    junit '**/target/surefire-reports/*.xml'
+                }
+            }
+        }
+
+        stage('Publish Coverage Report') {
+            steps {
+                dir('week2') {
+                    jacoco()
+                }
+            }
+        }
+
+        stage('Build Docker Image') {
+            steps {
+                dir('week2') {
+                    sh 'docker build -t ${DOCKERHUB_REPO}:${DOCKER_IMAGE_TAG} .'
+                }
+            }
+        }
+//
+//
+//        stage('Build Docker Image') {
+//              steps {
+//                 script {
+//                     docker.build("${DOCKERHUB_REPO}:${DOCKER_IMAGE_TAG}")
+//                 }
+//              }
+//        }
+
+//         stage('Push Docker Image to Docker Hub') {
+//             steps {
+//                 // This helper handles the credentials securely without the Docker plugin
+//                 withCredentials([usernamePassword(credentialsId: DOCKERHUB_CREDENTIALS_ID,
+//                                                   passwordVariable: 'DOCKER_PASS',
+//                                                   usernameVariable: 'DOCKER_USER')]) {
+//                     sh """
+//                         echo "${DOCKER_PASS}" | docker login -u "${DOCKER_USER}" --password-stdin
+//                         docker push ${DOCKERHUB_REPO}:${DOCKER_IMAGE_TAG}
+//                         docker logout
+//                     """
+//                 }
+//             }
+//         }
+
+           stage('Push Docker Image to Docker Hub') {
+                steps {
+                    dir('week2') {
+                        withCredentials([
+                            usernamePassword(
+                                credentialsId: "${DOCKERHUB_CREDENTIALS_ID}",
+                                usernameVariable: 'DOCKER_USER',
+                                passwordVariable: 'DOCKER_PASS'
+                            )
+                        ]) {
+                            sh '''
+                                echo $DOCKER_PASS | docker login -u $DOCKER_USER --password-stdin
+                                docker push ${DOCKERHUB_REPO}:${DOCKER_IMAGE_TAG}
+                                docker logout
+                            '''
+                        }
+                    }
+                }
+            }
+    }
+}

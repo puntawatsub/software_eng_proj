@@ -29,6 +29,7 @@
     </dependencies>
     
     <build>
+        <finalName>app</finalName>
         <plugins>
 <!--            Jar Manifest-->
             <plugin>

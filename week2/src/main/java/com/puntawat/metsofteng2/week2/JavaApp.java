@@ -15,7 +15,7 @@ import static java.util.Locale.US;
 public class JavaApp extends Application {
     @Override
     public void start(Stage stage) throws Exception {
-        ResourceBundle rb = ResourceBundle.getBundle("Bundles", Locale.US);
+        ResourceBundle rb = ResourceBundle.getBundle("Bundles", Locale.forLanguageTag("en-US"));
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Home.fxml"), rb);
         Scene scene = new Scene(loader.load());
 

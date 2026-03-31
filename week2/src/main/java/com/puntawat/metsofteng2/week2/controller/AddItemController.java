@@ -2,6 +2,7 @@ package com.puntawat.metsofteng2.week2.controller;
 
 import com.puntawat.metsofteng2.week2.model.PurchaseItem;
 import com.puntawat.metsofteng2.week2.model.ShoppingCart;
+import com.puntawat.metsofteng2.week2.service.LanguageService;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -33,14 +34,14 @@ public class AddItemController {
 
     private void onSave(ActionEvent event) {
         try {
-            NumberFormat nf = NumberFormat.getNumberInstance(Locale.getDefault());
+            NumberFormat nf = NumberFormat.getNumberInstance(LanguageService.getInstance().getResourceBundle().getLocale());
             ShoppingCart.getInstance().addItem(new PurchaseItem(nameField.getText(), nf.parse(priceField.getText()).doubleValue(), Integer.parseInt(quantityField.getText())));
             ((Stage) saveButton.getScene().getWindow()).close();
         } catch (ParseException | NumberFormatException ignored) {
             Alert alert = new Alert(Alert.AlertType.ERROR);
             alert.setTitle("Number format error");
             alert.setHeaderText("Number format error!");
-            alert.setContentText("Check your number again.");
+            alert.setContentText("Check your number again. Enter it correctly according to your selected language format");
             alert.show();
         }
     }
