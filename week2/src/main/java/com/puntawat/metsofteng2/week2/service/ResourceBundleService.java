@@ -3,15 +3,15 @@ package com.puntawat.metsofteng2.week2.service;
 import java.text.Bidi;
 import java.util.ResourceBundle;
 
-public class LanguageService {
-    private static LanguageService instance = null;
+public class ResourceBundleService {
+    private static ResourceBundleService instance = null;
     private ResourceBundle rb;
 
-    private LanguageService() {}
+    private ResourceBundleService() {}
 
-    public static LanguageService getInstance() {
+    public static ResourceBundleService getInstance() {
         if (instance == null) {
-            instance = new LanguageService();
+            instance = new ResourceBundleService();
         }
         return instance;
     }

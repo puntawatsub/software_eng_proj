@@ -37,7 +37,7 @@
             <HBox alignment="CENTER_LEFT">
                <children>
                   <Label text="%quantity_colon" />
-                  <TextField fx:id="quantityField" promptText="%Quantity" HBox.hgrow="ALWAYS">
+                  <TextField fx:id="quantityField" promptText="%number_of_items" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets left="12.0" />
                      </HBox.margin>
