@@ -20,7 +20,6 @@ public class CartService {
             transaction.commit();
         } catch (Exception e) {
             if (transaction != null) transaction.rollback();
-            e.printStackTrace();
         }
     }
 }

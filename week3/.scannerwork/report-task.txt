@@ -1,0 +1,6 @@
+projectKey=shopping_cart_softeng_2
+serverUrl=http://localhost:9000
+serverVersion=26.3.0.120487
+dashboardUrl=http://localhost:9000/dashboard?id=shopping_cart_softeng_2
+ceTaskId=b03b291d-3b92-4112-8a1b-e3eb2e414122
+ceTaskUrl=http://localhost:9000/api/ce/task?id=b03b291d-3b92-4112-8a1b-e3eb2e414122
