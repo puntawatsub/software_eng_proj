@@ -5,12 +5,11 @@ import jakarta.persistence.Persistence;
 
 public class HibernateUtil {
     // Note: We use EntityManagerFactory for JPA (persistence.xml)
-    private static final EntityManagerFactory entityManagerFactory = buildEntityManagerFactory();
+    private static EntityManagerFactory entityManagerFactory;
 
-    private static EntityManagerFactory buildEntityManagerFactory() {
+    public static EntityManagerFactory buildEntityManagerFactory() {
         try {
-            // "CartPU" must match the name inside your persistence.xml
-            return Persistence.createEntityManagerFactory("CartPU");
+            return Persistence.createEntityManagerFactory("production");
         } catch (Throwable ex) {
             System.err.println("Initial EntityManagerFactory creation failed." + ex);
             throw new ExceptionInInitializerError(ex);
@@ -19,5 +18,9 @@ public class HibernateUtil {
 
     public static EntityManagerFactory getEntityManagerFactory() {
         return entityManagerFactory;
+    }
+
+    public static void setEntityManagerFactory(EntityManagerFactory testEmf) {
+        entityManagerFactory = testEmf;
     }
 }

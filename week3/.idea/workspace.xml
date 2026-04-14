@@ -1,11 +1,244 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;org.jetbrains.plugins.github.ui.GithubSettingsConfigurable&quot;
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c42a877f-9002-4793-aa28-c7148a53e24b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/PMDPlugin.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/copilot.data.migration.ask2agent.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/sonarlint.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/puntawat/metsofteng2/week2/model/DbResourceBundleTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/com/puntawat/metsofteng2/week2/service/ResourceBundleServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.scannerwork/report-task.txt" beforeDir="false" afterPath="$PROJECT_DIR$/.scannerwork/report-task.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sonar-project.properties" beforeDir="false" afterPath="$PROJECT_DIR$/sonar-project.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/puntawat/metsofteng2/week2/JavaApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/puntawat/metsofteng2/week2/JavaApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/puntawat/metsofteng2/week2/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/puntawat/metsofteng2/week2/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/puntawat/metsofteng2/week2/controller/HomeController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/puntawat/metsofteng2/week2/controller/HomeController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/puntawat/metsofteng2/week2/model/DbResourceBundle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/puntawat/metsofteng2/week2/model/DbResourceBundle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/puntawat/metsofteng2/week2/model/HibernateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/puntawat/metsofteng2/week2/model/HibernateUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/puntawat/metsofteng2/week2/model/LocalizationString.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/puntawat/metsofteng2/week2/model/LocalizationString.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/puntawat/metsofteng2/week2/service/ResourceBundleService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/puntawat/metsofteng2/week2/service/ResourceBundleService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/META-INF/persistence.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/ShoppingCartTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/ShoppingCartTest.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CopilotPersistence">
+    <persistenceIdMap>
+      <entry key="_/Users/puntawatsubhamani/Documents/class_codes/software_eng_proj/week3" value="3CLixK1pwiqoN84Cxs9t4M49nsP" />
+    </persistenceIdMap>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JUnit5 Test Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "puntawatsub"
   }
-}</component>
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/puntawatsub/software_eng_proj.git",
+    "accountId": "09e54abb-eddd-42a4-a9cf-be5345829436"
+  }
+}]]></component>
+  <component name="KubernetesApiPersistence"><![CDATA[{}]]></component>
+  <component name="KubernetesApiProvider"><![CDATA[{
+  "isMigrated": true
+}]]></component>
+  <component name="McpProjectServerCommands">
+    <commands />
+    <urls />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="3CLixK1pwiqoN84Cxs9t4M49nsP" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "JUnit.DbResourceBundleTest.getKeys.executor": "Run",
+    "JUnit.DbResourceBundleTest.getLocale.executor": "Run",
+    "JUnit.DbResourceBundleTest.handleGetObject (1).executor": "Run",
+    "JUnit.DbResourceBundleTest.handleGetObject.executor": "Run",
+    "JUnit.PurchaseItemTest.getTotalCost.executor": "Run",
+    "JUnit.ResourceBundleServiceTest.isRTL.executor": "Run",
+    "JUnit.ShoppingCartTest.getTotalCost.executor": "Run",
+    "Maven.week2 [clean].executor": "Run",
+    "Maven.week2 [package].executor": "Run",
+    "Maven.week2 [verify].executor": "Run",
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "RunOnceActivity.MCP Project settings loaded": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.cidr.known.project.marker": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.readMode.enableVisualFormatting": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "cidr.known.project.marker": "true",
+    "com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "main",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.2",
+    "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable",
+    "to.speed.mode.migration.done": "true",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="com.puntawat.metsofteng2.week2.service" />
+      <recent name="com.puntawat.metsofteng2.week2.model" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.ResourceBundleServiceTest.isRTL">
+    <configuration default="true" type="AppleRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" IS_LOCATION_SIMULATION_SUPPORTED="false" IS_LOCATION_SIMULATION_ALLOWED="true" APPLICATION_LANGUAGE="IDELaunchSchemeLanguageUseSystemLanguage" APPLICATION_REGION="" DEVELOPMENT_TEAM="${TEAM_ID}" MAKE_ACTIVE="TRUE" SHOULD_DEBUG_EXTENSIONS="false">
+      <embedded_app_extension_list />
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DbResourceBundleTest.getKeys" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="week2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.puntawat.metsofteng2.week2.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.puntawat.metsofteng2.week2.model" />
+      <option name="MAIN_CLASS_NAME" value="com.puntawat.metsofteng2.week2.model.DbResourceBundleTest" />
+      <option name="METHOD_NAME" value="getKeys" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DbResourceBundleTest.handleGetObject (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="week2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.puntawat.metsofteng2.week2.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.puntawat.metsofteng2.week2.model" />
+      <option name="MAIN_CLASS_NAME" value="com.puntawat.metsofteng2.week2.model.DbResourceBundleTest" />
+      <option name="METHOD_NAME" value="handleGetObject(java.lang.String,java.lang.String,java.lang.String)" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PurchaseItemTest.getTotalCost" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="week2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="PurchaseItemTest" />
+      <option name="METHOD_NAME" value="getTotalCost" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ResourceBundleServiceTest.isRTL" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="week2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.puntawat.metsofteng2.week2.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.puntawat.metsofteng2.week2.service" />
+      <option name="MAIN_CLASS_NAME" value="com.puntawat.metsofteng2.week2.service.ResourceBundleServiceTest" />
+      <option name="METHOD_NAME" value="isRTL" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ShoppingCartTest.getTotalCost" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="week2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="ShoppingCartTest" />
+      <option name="METHOD_NAME" value="getTotalCost" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.ResourceBundleServiceTest.isRTL" />
+        <item itemvalue="JUnit.PurchaseItemTest.getTotalCost" />
+        <item itemvalue="JUnit.ShoppingCartTest.getTotalCost" />
+        <item itemvalue="JUnit.DbResourceBundleTest.handleGetObject (1)" />
+        <item itemvalue="JUnit.DbResourceBundleTest.getKeys" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.30387.90" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.30387.90" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="c42a877f-9002-4793-aa28-c7148a53e24b" name="Changes" comment="" />
+      <created>1776171495485</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1776171495485</updated>
+      <workItem from="1776171496563" duration="6706000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="github-copilot-workspace">
+    <instructionFileLocations>
+      <option value=".github/instructions" />
+    </instructionFileLocations>
+    <promptFileLocations>
+      <option value=".github/prompts" />
+    </promptFileLocations>
+  </component>
 </project>

@@ -1,5 +1,7 @@
+import com.puntawat.metsofteng2.week2.model.HibernateUtil;
 import com.puntawat.metsofteng2.week2.model.PurchaseItem;
 import com.puntawat.metsofteng2.week2.model.ShoppingCart;
+import jakarta.persistence.Persistence;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -18,6 +20,7 @@ class ShoppingCartTest {
 
     @Test
     void getTotalCost() {
+        HibernateUtil.setEntityManagerFactory(Persistence.createEntityManagerFactory("test"));
         ShoppingCart shoppingCart = ShoppingCart.getInstance();
         double costs = 0;
         for (int i = 0; i < 10; i++) {

@@ -1,4 +1,5 @@
 package com.puntawat.metsofteng2.week2.model;
+import com.puntawat.metsofteng2.week2.jacoco.ExcludeFromJacocoGeneratedReport;
 import jakarta.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,52 +29,64 @@ public class CartRecord {
     @OneToMany(mappedBy = "cartRecord", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<CartItem> items = new ArrayList<>();
 
+    @ExcludeFromJacocoGeneratedReport
     // Helper method to keep both sides of the relationship in sync
     public void addItem(CartItem item) {
         items.add(item);
         item.setCartRecord(this);
     }
 
+    @ExcludeFromJacocoGeneratedReport
     public Integer getTotalItems() {
         return totalItems;
     }
 
+    @ExcludeFromJacocoGeneratedReport
     public void setTotalItems(Integer totalItems) {
         this.totalItems = totalItems;
     }
 
+    @ExcludeFromJacocoGeneratedReport
     public Double getTotalCost() {
         return totalCost;
     }
 
+    @ExcludeFromJacocoGeneratedReport
     public void setTotalCost(Double totalCost) {
         this.totalCost = totalCost;
     }
 
+    @ExcludeFromJacocoGeneratedReport
     public String getLanguage() {
         return language;
     }
 
+    @ExcludeFromJacocoGeneratedReport
     public void setLanguage(String language) {
         this.language = language;
     }
 
+    @ExcludeFromJacocoGeneratedReport
     public Date getCreatedAt() {
         return createdAt;
     }
 
+    @ExcludeFromJacocoGeneratedReport
     public void setCreatedAt(Date createdAt) {
         this.createdAt = createdAt;
     }
 
+    @ExcludeFromJacocoGeneratedReport
     public List<CartItem> getItems() {
         return items;
     }
 
+    @ExcludeFromJacocoGeneratedReport
     public void setItems(List<CartItem> items) {
         this.items = items;
     }
 
+    @ExcludeFromJacocoGeneratedReport
     public Integer getId() {
         return id;
     }

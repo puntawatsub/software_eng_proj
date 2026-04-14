@@ -1,9 +1,8 @@
 package com.puntawat.metsofteng2.week2.model;
 
 import jakarta.persistence.EntityManager;
-import java.util.*;
+import org.checkerframework.checker.nullness.qual.NonNull;
 
-import jakarta.persistence.EntityManager;
 import java.util.*;
 
 public class DbResourceBundle extends ResourceBundle {
@@ -16,9 +15,7 @@ public class DbResourceBundle extends ResourceBundle {
     }
 
     private void loadFromDatabase() {
-        EntityManager em = HibernateUtil.getEntityManagerFactory().createEntityManager();
-        try {
-            // Fetch all keys for the current language code (e.g., 'ar', 'fi', 'en')
+        try (EntityManager em = HibernateUtil.getEntityManagerFactory().createEntityManager()) {
             List<LocalizationString> strings = em.createQuery(
                             "SELECT l FROM LocalizationString l WHERE l.language = :lang",
                             LocalizationString.class)
@@ -28,13 +25,11 @@ public class DbResourceBundle extends ResourceBundle {
             for (LocalizationString ls : strings) {
                 lookup.put(ls.getKey(), ls.getValue());
             }
-        } finally {
-            em.close();
         }
     }
 
     @Override
-    protected Object handleGetObject(String key) {
+    protected Object handleGetObject(@NonNull String key) {
         return lookup.get(key);
     }
 

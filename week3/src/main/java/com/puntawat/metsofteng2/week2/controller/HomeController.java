@@ -72,20 +72,12 @@ public class HomeController {
                 updateCostLabel();
             }
         });
-        tableView.getSelectionModel().selectedItemProperty().addListener(((obv, oldSelect, newSelect) -> {
-            selected = newSelect;
-        }));
+        tableView.getSelectionModel().selectedItemProperty().addListener(((obv, oldSelect, newSelect) -> selected = newSelect));
         MenuItem deleteItem = new MenuItem("Delete");
-        deleteItem.setOnAction(event -> {
-            ShoppingCart.getInstance().removeItem(selected);
-        });
+        deleteItem.setOnAction(event -> ShoppingCart.getInstance().removeItem(selected));
         ContextMenu contextMenu = new ContextMenu(deleteItem);
-        tableView.setOnContextMenuRequested(contextMenuEvent -> {
-            contextMenu.show(costLabel.getScene().getWindow(), contextMenuEvent.getScreenX(), contextMenuEvent.getScreenY());
-        });
-        languageCombo.setOnAction(event -> {
-            onLanguageSelected(languageCombo.getValue());
-        });
+        tableView.setOnContextMenuRequested(contextMenuEvent -> contextMenu.show(costLabel.getScene().getWindow(), contextMenuEvent.getScreenX(), contextMenuEvent.getScreenY()));
+        languageCombo.setOnAction(event -> onLanguageSelected(languageCombo.getValue()));
 
 
 
@@ -113,14 +105,7 @@ public class HomeController {
     }
 
     private String formatCurrency(double num) {
-//        String filtered = nf.format(num).replaceAll("[^0-9,\\.\\s]", "");
-        String filtered = nf.format(num);
-//        int firstDot = filtered.indexOf('.');
-//        if (firstDot != -1) {
-//            filtered = filtered.substring(0, firstDot + 1) +
-//                    filtered.substring(firstDot + 1).replace(".", "");
-//        }
-        return filtered;
+        return nf.format(num);
     }
 
     private void onAddItemPressed(ActionEvent event) {
@@ -156,15 +141,6 @@ public class HomeController {
             throw new RuntimeException(e);
         }
     }
-
-//    private void updateFont(ResourceBundle rb) {
-//        String font = switch (rb.getLocale().getLanguage()) {
-//            case "ja" -> "/css/japanese.css";
-//            case "ar" -> "/css/arabic.css";
-//            default -> "/css/latin.css";
-//        };
-//        costLabel.getScene().getStylesheets().add(getClass().getResource(font).toExternalForm());
-//    }
 
 
 }

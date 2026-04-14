@@ -9,10 +9,10 @@ public class LocalizationString {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "`key`", nullable = false)
+    @Column(name = "local_key", nullable = false)
     private String key;
 
-    @Column(nullable = false)
+    @Column(nullable = false, name = "local_value")
     private String value;
 
     @Column(nullable = false, length = 10)
