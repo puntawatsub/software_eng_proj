@@ -7,6 +7,7 @@ pipeline {
         DOCKERHUB_CREDENTIALS_ID = 'Docker_Hub'
         DOCKERHUB_REPO = 'puntawatsubhamani/week4_homework_softengproj2'
         DOCKER_IMAGE_TAG = 'latest'
+        SCANNER_HOME = tool 'SonarQubeScanner'
     }
 
     tools {
@@ -81,7 +82,7 @@ pipeline {
             steps {
                 dir('week4') {
                     withSonarQubeEnv('SonarScanner') {
-                        sh """sonar-scanner -Dsonar.token=${params.SONAR_TOKEN}"""
+                        sh """${SCANNER_HOME}/bin/sonar-scanner -Dsonar.token=${params.SONAR_TOKEN}"""
                     }
                 }
             }
