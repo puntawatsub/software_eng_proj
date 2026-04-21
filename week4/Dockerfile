@@ -1,4 +1,4 @@
-FROM maven:3.9.14-amazoncorretto-25-debian AS build
+FROM maven:3.9.14-eclipse-temurin-25 AS build
 
 ENV DISPLAY=host.docker.internal:0.0
 
