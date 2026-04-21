@@ -1,6 +1,6 @@
-projectKey=shopping_cart_softeng_2
+projectKey=softengweek4
 serverUrl=http://localhost:9000
 serverVersion=26.3.0.120487
-dashboardUrl=http://localhost:9000/dashboard?id=shopping_cart_softeng_2
-ceTaskId=83f686da-ea26-4893-aa9a-b8e892cdfbd9
-ceTaskUrl=http://localhost:9000/api/ce/task?id=83f686da-ea26-4893-aa9a-b8e892cdfbd9
+dashboardUrl=http://localhost:9000/dashboard?id=softengweek4
+ceTaskId=aa837b34-d382-4dc7-9ae8-f51de7a3a816
+ceTaskUrl=http://localhost:9000/api/ce/task?id=aa837b34-d382-4dc7-9ae8-f51de7a3a816
