@@ -5,7 +5,7 @@ pipeline {
         PATH = "/usr/local/bin:$PATH"
 
         DOCKERHUB_CREDENTIALS_ID = 'Docker_Hub'
-        DOCKERHUB_REPO = 'puntawatsubhamani/week2_homework_softengproj2'
+        DOCKERHUB_REPO = 'puntawatsubhamani/week3_homework_softengproj2'
         DOCKER_IMAGE_TAG = 'latest'
     }
 
@@ -31,7 +31,7 @@ pipeline {
 
         stage('Build') {
             steps {
-                dir('week1') {
+                dir('week3') {
                     sh 'mvn clean install'
                 }
             }
@@ -39,7 +39,7 @@ pipeline {
 
         stage('Test') {
             steps {
-                dir('week2') {
+                dir('week3') {
                     sh 'mvn test'
                 }
             }
@@ -47,7 +47,7 @@ pipeline {
 
         stage('Code Coverage') {
             steps {
-                dir('week2') {
+                dir('week3') {
                     sh 'mvn jacoco:report'
                 }
             }
@@ -55,7 +55,7 @@ pipeline {
 
         stage('Publish Test Results') {
             steps {
-                dir('week2') {
+                dir('week3') {
                     junit '**/target/surefire-reports/*.xml'
                 }
             }
@@ -63,7 +63,7 @@ pipeline {
 
         stage('Publish Coverage Report') {
             steps {
-                dir('week2') {
+                dir('week3') {
                     jacoco()
                 }
             }
@@ -71,7 +71,7 @@ pipeline {
 
         stage('Build Docker Image') {
             steps {
-                dir('week2') {
+                dir('week3') {
                     sh 'docker build -t ${DOCKERHUB_REPO}:${DOCKER_IMAGE_TAG} .'
                 }
             }
@@ -103,7 +103,7 @@ pipeline {
 
            stage('Push Docker Image to Docker Hub') {
                 steps {
-                    dir('week2') {
+                    dir('week3') {
                         withCredentials([
                             usernamePassword(
                                 credentialsId: "${DOCKERHUB_CREDENTIALS_ID}",
