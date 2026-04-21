@@ -80,7 +80,7 @@ pipeline {
         stage('SonarQube Analysis') {
             steps {
                 dir('week4') {
-                    withSonarQubeEnv('SonarQube') {
+                    withSonarQubeEnv('SonarScanner') {
                         sh 'sonar-scanner -Dsonar.token${params.SONAR_TOKEN}'
                     }
                 }
